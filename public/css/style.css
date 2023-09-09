@@ -1,0 +1,36 @@
+header {
+    background: #9C27B0;
+    color: white;
+    display: flex;
+}
+
+footer {
+    background: #3F51B5;
+    color: white;
+    display: flex;
+}
+
+body>footer>nav>ul>li>a {
+    color: white;
+}
+
+body>footer>nav>ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body>header>nav>ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body>header>nav>ul li a {
+    color: white;
+    text-decoration: none;
+}

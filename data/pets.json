@@ -1,0 +1,15 @@
+{
+    "pets": [{
+        "id": "1",
+        "name": "Pretty Kitty",
+        "img": "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png",
+        "breed": "Bombay Cat",
+        "description": "---"
+    }, {
+        "id": "2",
+        "name": "Pretty Kitty 2",
+        "img": "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png",
+        "breed": "Bombay Cat 2",
+        "description": "---"
+    }]
+}
