@@ -13,7 +13,14 @@ app.use(express.static('public'))
 
 app.get("/", (req, res) => {
     res.status(200)
-    res.render("home")
+        // props.data
+    console.log(pets)
+    res.render("home", { data: pets })
+})
+
+app.get("/addpet", (req, res) => {
+    res.status(200)
+    res.render("addPet")
 })
 
 app.get("/about", (req, res) => {

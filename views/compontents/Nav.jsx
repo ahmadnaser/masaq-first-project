@@ -3,15 +3,19 @@ import React from "react";
 function Nav(props){
     return (
         <header>
-           <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/welcome">Welcome</a></li>
-                <li><a href="/pets">Pets Json</a></li>
+        <nav>
+            <ul className="navigation">
+                <li><a href="/">Home Page</a></li>
+                <li><a href="">Add Breed</a></li>
+                <li><a href="/addpet">Add Cat</a></li>
             </ul>
-           </nav>
-        </header>
+        </nav>
+        <h1>Cat Shelter</h1>
+        <form action="/search">
+            <input type="text" />
+            <button type="button">Search</button>
+        </form>
+    </header>
     );
 }
 
