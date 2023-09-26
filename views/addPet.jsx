@@ -6,8 +6,7 @@ function AddPet(props){
     return (
         <DefaultLayout title="About Page">
             <Nav />
-            {props.message ? (<h1 className="toast">{props.message}</h1>) : (null)}
-            <form action="/AddPet" method="post" className="cat-form" encType="multipart/form-data">
+            <form action="" method="" className="cat-form" enctype="multipart/form-data">
             <h2>Add Cat</h2>
             <label htmlFor="name">Name</label>
             <input name="name" type="text" id="name" />

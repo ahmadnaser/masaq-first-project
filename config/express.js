@@ -1,17 +1,9 @@
 const config = require('./index')
 const express = require('express')
 
-const bp = require('body-parser')
-const formData = require('express-form-data')
-
-
-
-
-
 function setExpress(app) {
 
-    app.use(bp.json())
-    app.use(formData.parse())
+
 
 
     //views
