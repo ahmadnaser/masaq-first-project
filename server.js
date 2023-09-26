@@ -3,7 +3,8 @@ const express = require('express')
 const app = express();
 
 require('./config/express')(app)
-require('./config/mongodb')(app)
+    //require('./config/mongodb')(app)
+require('./config/mongoose')(app)
 
 const router = require('./routes')
 
