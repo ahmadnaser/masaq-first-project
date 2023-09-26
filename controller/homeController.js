@@ -16,19 +16,6 @@ router.get("/addpet", (req, res) => {
     res.render("addPet")
 })
 
-router.post("/AddPet", (req, res) => {
-    console.log(req.body)
-    res.status(200)
-
-    if (req.body.name) {
-        //save in db
-        res.render("addPet", { message: "Successfully posted new pet!" })
-    } else {
-        res.render("addPet")
-    }
-
-})
-
 router.get("/about", (req, res) => {
     console.log(req.body);
     res.status(200);
