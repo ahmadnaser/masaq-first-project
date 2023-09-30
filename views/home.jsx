@@ -13,10 +13,10 @@ function Home(props) {
           <ul>
             {
                
-                props.data.pets.map(pet => (
+                props.data.map(pet => (
                     <li key={pet.id}>
                     <img
-                      src={pet.img}
+                      src={pet.image}
                       alt={pet.name}
                     />
                     <h3></h3>

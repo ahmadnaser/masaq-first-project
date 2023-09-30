@@ -2,32 +2,27 @@ const { Router } = require("express");
 const router = Router();
 
 const pets = require("../data/pets.json");
-
-//default route ~ default actoin ~ home ~ main landing page
-router.get("/", (req, res) => {
+const petService = require('../services/petService')
+    //default route ~ default actoin ~ home ~ main landing page
+router.get("/", async(req, res) => {
     res.status(200);
     // props.data
-    console.log(pets);
-    res.render("home", { data: pets });
+
+
+
+    petService.getAll().then(allpets => {
+        console.log("allpets")
+        console.log(allpets)
+        res.render("home", { data: allpets });
+    }).catch(err => {
+        console.log(err.message)
+        res.render("home", { data: pets });
+    })
+
+
 });
 
-router.get("/addpet", (req, res) => {
-    res.status(200)
-    res.render("addPet")
-})
 
-router.post("/AddPet", (req, res) => {
-    console.log(req.body)
-    res.status(200)
-
-    if (req.body.name) {
-        //save in db
-        res.render("addPet", { message: "Successfully posted new pet!" })
-    } else {
-        res.render("addPet")
-    }
-
-})
 
 router.get("/about", (req, res) => {
     console.log(req.body);
@@ -59,9 +54,5 @@ router.get("/welcome", (req, res) => {
     res.send("Welcome to www.Masaq.it");
 });
 
-router.get("/pets", (req, res) => {
-    res.status(200);
-    res.json(pets);
-});
 
 module.exports = router;
