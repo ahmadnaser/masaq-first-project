@@ -65,14 +65,14 @@ router.get("/welcome", (req, res) => {
 router.get("/setCookies", (req, res) => {
     res.cookie("cookiesTerms", "ok")
     res.status(200);
-    res.redirect("?/cookiesadded=true");
+    res.redirect("/?cookiesadded=true");
 });
 
 
 router.get("/clearCookies", (req, res) => {
     res.cookie("cookiesTerms", null)
     res.status(200);
-    res.redirect("?/cookiesadded=false");
+    res.redirect("/?cookiesadded=false");
 });
 
 
