@@ -63,7 +63,7 @@ router.get("/welcome", (req, res) => {
 
 
 router.get("/setCookies", (req, res) => {
-    res.cookie("cookiesTerms", "ok")
+    res.cookie("cookiesTerms", "ok", { maxAge: 60 * 60 * 24 * 365 * 1000 })
     res.status(200);
     res.redirect("/?cookiesadded=true");
 });
