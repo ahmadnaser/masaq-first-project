@@ -14,7 +14,11 @@ router.get("/", async(req, res) => {
         cookiesTerms = req.cookies.cookiesTerms;
     }
 
-
+    if (req.session.userid) {
+        console.log('user is loggedin')
+    } else {
+        console.log('user is not loggedin')
+    }
 
 
     petService.getAll().then(allpets => {

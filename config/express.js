@@ -4,6 +4,8 @@ const bp = require('body-parser')
 const formData = require('express-form-data')
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt')
+const session = require('express-session')
+
 
 function setExpress(app) {
 
@@ -11,6 +13,10 @@ function setExpress(app) {
     app.use(bp.json())
     app.use(formData.parse())
     app.use(cookieParser());
+
+
+    app.use(session({ secret: 'masaq-secret' }, { httpOnly: true }, { secure: true }))
+
     //views
     app.set('view engine', 'jsx');
     app.engine('jsx', require('express-react-views').createEngine());
