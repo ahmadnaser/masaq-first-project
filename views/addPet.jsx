@@ -1,7 +1,7 @@
 import React from "react";
 import DefaultLayout from './layout/default'
-import Nav from './compontents/Nav'
-import Footer from './compontents/Footer'
+import Nav from "./components/Nav";
+import Footer from './components/Footer'
 function AddPet(props){
     return (
         <DefaultLayout title="About Page">

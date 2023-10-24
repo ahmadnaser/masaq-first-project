@@ -1,7 +1,8 @@
 const { Router } = require("express");
 const router = Router();
 const User = require('../models/User')
-
+const jwt = require('../utils/jwt')
+const config = require('../config')
 router.get("/user/login", (req, res) => {
 
     if (req.session.userid) {
@@ -49,8 +50,13 @@ router.post("/user/register", (req, res, next) => {
         }
 
     }).then((createdUser) => {
-        if (createdUser)
-            res.redirect(`/user/login?msg=userregistered`)
+        if (createdUser) {
+            //jwt token
+            const token = jwt.createToken(createdUser._id);
+            res.cookie(config.cookie, token)
+            res.redirect(`/user/login?token=` + token)
+        }
+
     }).catch((e) => {
         console.log(e)
         res.redirect(`/user/register?error`)
@@ -89,7 +95,12 @@ router.post("/user/login", (req, res, next) => {
         console.log(usr)
         console.log(usr._id)
         req.session.userid = usr._id
-        res.redirect(`/?msg=${usr.name}`)
+            //jwt token
+        const token = jwt.createToken(usr._id);
+        res.cookie(config.cookie, token, { maxAge: 60 * 60 * 24 * 365 * 1000 })
+            //res.cookie(config.cookie, token)
+
+        res.redirect(`/?hello=${usr.name}&token=${token}`)
     }).catch((e) => {
         console.log(e)
         res.redirect(`/user/login?error`)

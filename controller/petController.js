@@ -2,13 +2,15 @@ const { Router } = require("express");
 const router = Router();
 const petService = require('../services/petService')
 
+const { requireAuth } = require('../utils/auth')
 
-router.get("/addpet", (req, res) => {
+//router.get("*",requireAuth)
+router.get("/addpet", requireAuth, (req, res) => {
     res.status(200)
     res.render("addPet")
 })
 
-router.post("/AddPet", (req, res) => {
+router.post("/AddPet", requireAuth, (req, res) => {
     console.log(req.body)
     res.status(200)
 

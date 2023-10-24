@@ -21,6 +21,7 @@
         "express-form-data": "^2.0.22",
         "express-react-views": "^0.11.0",
         "express-session": "1.17.3",
+        "jsonwebtoken": "^9.0.2",
         "mongodb": "^6.1.0",
         "mongoose": "^7.5.3",
         "react": "^16.14.0",
