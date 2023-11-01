@@ -8,8 +8,14 @@ function Nav(props){
                 <li><a href="/">Home Page</a></li>
                 <li><a href="">Add Breed</a></li>
                 <li><a href="/addpet">Add Cat</a></li>
-                <li><a href="/user/login">Login</a></li>
-                <li><a href="/user/register">Register</a></li>
+                {(props.isLoggedIn)?(
+                <li><a href="/user/logout">Logout</a></li>
+                ):(
+                <><li><a href="/user/login">Login</a></li>
+                <li><a href="/user/register">Register</a></li></>
+                )}
+           
+
             </ul>
         </nav>
         <h1>Cat Shelter</h1>

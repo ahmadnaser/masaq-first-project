@@ -8,6 +8,14 @@ router.use('/', petController)
 
 const userController = require('./controller/userController')
 router.use(userController)
-    //express to use router
+
+const authController = require('./controller/api/auth')
+router.use(authController)
+
+const usersController = require('./controller/api/users')
+router.use(usersController)
+
+
+//express to use router
 
 module.exports = router

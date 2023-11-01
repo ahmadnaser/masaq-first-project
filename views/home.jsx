@@ -6,7 +6,7 @@ function Home(props) {
    
   return (
     <DefaultLayout title="Home Page">
-      <Nav />
+      <Nav isLoggedIn={props.isLoggedIn}/>
 
       <main>
         <section className="cats">

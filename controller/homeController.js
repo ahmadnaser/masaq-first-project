@@ -8,7 +8,9 @@ const petService = require('../services/petService')
 //default route ~ default actoin ~ home ~ main landing page
 router.get("/", async(req, res) => {
     res.status(200);
-    // props.data
+
+    let isLoggedIn = req.cookies.x_auth_token ? true : false
+        // props.data
     let cookiesTerms = "";
     if (req.cookies.cookiesTerms) {
         cookiesTerms = req.cookies.cookiesTerms;
@@ -24,7 +26,7 @@ router.get("/", async(req, res) => {
     petService.getAll().then(allpets => {
         console.log("allpets")
         console.log(allpets)
-        res.render("home", { data: allpets, cookiesTerms: cookiesTerms });
+        res.render("home", { data: allpets, cookiesTerms: cookiesTerms, isLoggedIn });
     }).catch(err => {
         console.log(err.message)
         res.render("home", { data: pets });
