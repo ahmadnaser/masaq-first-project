@@ -4,6 +4,10 @@ const User = require('../../models/User')
 const jwt = require('../../utils/jwt')
 const config = require('../../config')
 
+
+const jwtLibrary = require('jsonwebtoken');
+
+
 const { check, validationResult } = require("express-validator");
 
 router.post("/api/auth", [
@@ -53,6 +57,48 @@ router.post("/api/auth", [
 
 
 })
+
+
+router.post("/api/verifytoken", [
+    check("token", "Please enter a valid token").not().isEmpty(),
+], (req, res, next) => {
+    const errors = validationResult(req)
+    console.log(req.body)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+
+    console.log(req.body)
+
+    const { token } = req.body
+
+    jwtLibrary.verify(token, config.secret, (err, payload) => {
+
+        if (err) {
+            console.log('no token saved 1')
+            console.log()
+            return res.status(400).json({ status: "not valid" })
+        } else {
+            console.log('token loaded')
+            console.log(payload)
+            return res.status(200).json({ status: "ok" })
+        }
+
+
+    })
+
+
+
+
+
+
+})
+
+
+
+
+
 
 
 

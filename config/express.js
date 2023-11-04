@@ -5,7 +5,7 @@ const formData = require('express-form-data')
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt')
 const session = require('express-session')
-
+const cors = require('cors')
 
 function setExpress(app) {
 
@@ -13,7 +13,7 @@ function setExpress(app) {
     app.use(bp.json())
     app.use(formData.parse())
     app.use(cookieParser());
-
+    app.use(cors())
 
     app.use(session({ secret: 'masaq-secret' }, { httpOnly: true }, { secure: true }))
 
